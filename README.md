@@ -8,7 +8,7 @@
   <li>Open the project with an IDE, such as PyCharm, install the necessary packages(see next) and you're ready to play!</li>
 </ol>
 
-## Necessary packages
+## Required libraries
 To run the program properly, following packages must be installed:
 <ul>
   <li>pygame, for visualisation</li>
@@ -20,6 +20,7 @@ To run the program properly, following packages must be installed:
 </ul>
 This is done via the terminal with use of <a href = https://pip.pypa.io/en/stable/installation/>pip</a>.
 In case of pip, type in your terminal of the IDE:
+
 ```
 pip install pygame time numpy random chess-board chessboard display
 ```
