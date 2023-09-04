@@ -1,6 +1,6 @@
-# Chess by Burak Kucuktopal
+# Chess in Python 3.1 by Burak Kucuktopal
 
-## cloning the repository
+## Cloning the repository
 <ol>
   <li>Go to you command prompt</li>
   <li>Choose the directory you'd like to have the project in. As an exmaple(Windows, already in directory User\Name): cd \Your-Directory</li>
