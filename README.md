@@ -19,3 +19,7 @@ To run the program properly, following packages must be installed:
   <li>display from chessboard, for the Zobrist keys generation</li>  
 </ul>
 This is done via the terminal with use of <a href = https://pip.pypa.io/en/stable/installation/>pip</a>.
+In case of pip, type in your terminal of the IDE:
+```
+pip install pygame time numpy random chess-board chessboard display
+```
