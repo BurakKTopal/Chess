@@ -18,3 +18,4 @@ To run the program properly, following packages must be installed:
   <li>chessboard(if this gives nothing, try chess-board), for the Zobrist keys generation</li>
   <li>display from chessboard, for the Zobrist keys generation</li>  
 </ul>
+This is done via the terminal with use of <a href = https://pip.pypa.io/en/stable/installation/>pip</a>.
