@@ -6,10 +6,10 @@
   <li>Go to you command prompt</li>
   <li>Enter "cd.." in your prompt until you have "C:\>" </li>
   <li>Drag the folder to which you'd like to clone the repository. There will appear something like:
+    
   ```
   C:\Users\BurakKtopal\Python\Chess
   ```
-    
   Change the "C:" into "cd":
     
   ```
