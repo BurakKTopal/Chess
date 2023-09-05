@@ -125,7 +125,7 @@ With these points in mind, a naive approach is by adding all the pieces' points 
   </ul>
 </p>
 
-### Algoritmhs
+### Algorithms
 <p>
   There has to be a plan that the engine needs to follow to determine the best move. This can be done by several ways(AI, minimax, negamax, ...). In my program
   I have made use of minimax and some modifications on it.
