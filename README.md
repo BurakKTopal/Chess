@@ -147,16 +147,10 @@ Zobrist hashing is pretty straightforward. You generate a random number, for eno
 ## Choosing the difficulty and type of algorithm when playing
 <p>
   You can also choose the difficulty of the engine and on which algorithm it runs. You can choose out of the three algorithms:
-  <ul>
-              <li>minimax_with_zobrist_hashing_no_pruning(chessboard, depth, maximizingPlayer) </li>
-    
-              <li> minimax_with_pruning(chessboard, depth, -float('inf'), float('inf'), maximizingPlayer) </li>
-                    
-              <li> minimax_with_zobrist_hashing_and_pruning(chessboard, depth, -float('inf'), float('inf'), maximizingPlayer) </li>
-  </ul>
 </p>
-
-
-
-
-
+  <ul>
+    <li> minimax_with_zobrist_hashing_no_pruning(chessboard, depth, maximizingPlayer) </li>
+    <li> minimax_with_pruning(chessboard, depth, -float('inf'), float('inf'), maximizingPlayer) </li>
+    <li> minimax_with_zobrist_hashing_and_pruning(chessboard, depth, -float('inf'), float('inf'), maximizingPlayer) </li>
+  </ul>
+As an example you can look at [Link to Line 555](https://github.com/BurakKTopal/Chess/edit/main/Main.py#L555) and [Link to Line 680](https://github.com/BurakKTopal/Chess/edit/main/Main.py#L680). Please only change the 'depth' value. For the minimax with pruning and zobrist hashing, calculating at a depth 4, the engine takes somewhere up to 40-60 seconds. At depth 3, the time to generate a move is around the 3-10 seconds
