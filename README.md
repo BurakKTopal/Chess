@@ -129,7 +129,5 @@ Minimax relies on the principle of a maximizing(white) and minimizing(black) the
 ####  Minimax with pruning
 In a game of chess, going through all different positions is very time-expensive when we're going to higher depths. To counter this, we can 'prune' the game tree. A game tree represents per level the possible chess positions that can be achieved. The pruning happens by working with additional $\alpha$ and $\beta$ parameters. With these parameters we could stop searching further into a branch of the tree if we're pretty sure that it won't give any better move. We thus 'prune' the branch. Sebastian League again made a fantastic <a href="https://www.youtube.com/watch?v=l-hh51ncgDI&t">video</a> about this topic. 
 
-
-
 #### Minimax with pruning and Zobrist Hashing
-
+With the pruning, we can already achieve a decent chess engine, but I wanted to do something extra to make it a notch faster. This can be achieved by the concept of 'Hashing'. Hashing in this case means that you map a chess position to a unique number and save this as a key in a dictionary with its value information about the position; $\alpha$, $\beta$, best move and evaluation. This comes very handy in chess because of the phenomena called 'transpositions'. For example for a depth of 4: we can have the game 1.e4 2.e5 3.Nc3 and 1.Nc3 2.e5 3.e4 If you'd play this out, you'll see that we have the exact same position. In this case, by rememebering that the engine already encountered this position in previous calculations, it can gather the information of the position out of the dictionary.
