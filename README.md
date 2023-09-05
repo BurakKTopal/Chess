@@ -4,8 +4,17 @@
 ### Cloning the repository
 <ol>
   <li>Go to you command prompt</li>
-  <li>Enter "cd .." in your prompt until you have "C:\>" </li>
-  <li> Drag the folder to which you'd like to go to your folder and change the "C:" that will automatically appear at the front to "cd"</li>
+  <li>Enter "cd.." in your prompt until you have "C:\>" </li>
+  <li>Drag the folder to which you'd like to clone the repository. There will appear something like:
+  ```
+  C:\Users\BurakKtopal\Python\Chess
+  ```
+  Change the "C:" into "cd":
+    
+  ```
+  cd\Users\BurakKtopal\Python\Chess
+  ```
+  </li>
   <li>Clone the repository. This means copying and pasting following line in your command prompt: </li>
   
   ```
@@ -16,13 +25,13 @@
 </ol>
 
 ### Required libraries
-To run the program properly, following packages must be installed:
+To run the program properly, you must have Python 3.7 > and the following packages must be installed:
 <ul>
   <li>pygame, for visualisation</li>
   <li>time, for timing the amount of time needed to generate move</li>
   <li>numpy, for calculating sign of values(used for color identification)</li>
   <li>random, for the Zobrist keys generation</li>
-  <li>chessboard(if this gives nothing, try chess-board), for the Zobrist keys generation</li>
+  <li>chess-board(if this gives nothing, try chess-board)</li>
   <li>display from chessboard, for the Zobrist keys generation</li>  
 </ul>
 <p>
@@ -31,7 +40,7 @@ To run the program properly, following packages must be installed:
 In case of pip, type in your terminal of the IDE:
 
 ```
-pip install pygame time numpy random chess-board chessboard display
+pip install pygame time numpy random chess-board display
 ```
 
 ## The Begin of a challenge
