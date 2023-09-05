@@ -46,7 +46,16 @@ August 15, I started looking back into my program. At first sight it was really 
 ## Optimization
 
 ### Proper Python class use
-When I started looking back at the code in August, the first thing I notices was the very improper use of Python classes, as an example:
+When I started looking back at the code in August, the first thing I notices was the very improper use of Python classes. Each time I needed a function that was created in the board class, I'd would make a new instance of the class and call the function. This is equal to creating mutliple boards instead of working with one! 
+
+### Saving king positions
+Once I understood that I can give characteristics to the board, I started saving the positions of the king. This comes handy when you consider looking for checks: instead of each time searching through all 64 squares for the king of the corresponding color, I can just fetch it from the board-object.
+
+### Breaking loop if condition already satisfied
+One of the ways to look if a move by a piece is legal, is to check if there are any pieces between the begin and endpoint. If there is, then the move could not be played; as pieces, excluding the knight, cannot jump over other pieces. I previously continued the loop, even if a piece was already found on the path, but I finally realized that it could be stopped if at least one was found.
+
+### Saving the non-empty cells
+Inspired by the <a href =https://www.youtube.com/watch?v=U4ogK0MIzqk >video</a> of <a href = https://github.com/SebLague/Chess-Coding-Adventure> Sebastian League</a>, I started saving the non-empty cells on the board. This strongly improves the time to generate the possible moves, since there will be at least 32 squares not checked.
 
 
 
