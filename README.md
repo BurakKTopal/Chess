@@ -104,8 +104,9 @@ There are different way to analyze a chess position. To start evaluating, there 
 </ul>
 <p>
 With these points in mind, a naive approach is by adding all the pieces' points on the board and look if it is positive or negative to see which side is better and by how much. This is a good estimator when
-  you'd like to have a global assessment of the position. But this won't give any hint to the engine how to play the opening; the fundament of the game.
+  you'd like to have a global assessment of the position. But this won't give any hint to the engine how to play the opening; the fundament of the game. To account for this, I've made use of square-piece tables
 </p>
+
 ### Minimax without pruning
 <p>
   Minimax works with the principle of a maximizing player, and the other minimizing player. The maximizing player wants to have a highest possible points; the white player 
