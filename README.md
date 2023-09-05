@@ -43,7 +43,7 @@ I got interested in playing chess at my 13th and really started playing when I w
 August 15, I started looking back into my program. At first sight it was really a big chaos; it costed me, the maker of the program, 2 days(!) to go through it and clean it up. I wrote a program to count the number of positions available for a certain depth. At depth 4 from the begin position, it took 23 minutes to count the 197 281 positions! The number seems impressive, but the time it takes to achieve this is gigantically poor; it would mean $\approx$ 194 nodes/s. Compare this miserable number to that of the super-engine <a href = "https://chessify.me/blog/nps-what-are-the-nodes-per-second-in-chess-engine-analysis">Stockfish</a>: $5 \cdot 10^{6} - 2 \cdot 10^{7}$ nodes/s. As from here, the optimization journey begins!
 </p>
 
-## Optimization
+## Optimization of internal processes
 
 ### Proper Python class use
 <p>
@@ -69,4 +69,44 @@ Inspired by the <a href ="https://www.youtube.com/watch?v=U4ogK0MIzqk"> video </
 To come up with this one, it took me quite some time. The function 'if_in_check()' looks if the king is in check and 'looking_if_check()' plays a move and looks if it results in seting his own king in check, if so, then the move is not legal. 'looking_if_check()' was first called every time a move is validated, but this is only needed for the pieces which are in the line of sight of the king! This means that a friendly piece that is NOT diagonally, horizontally or vertically connected to the king, cannot put his own king in check. This reduced the number of calls to the 'if_in_check()' function, and thus reduced the time.
 
 ### Performance <-> time
-After these modifications, the number of nodes/s achieved drastically increased. As stated in the begin, my program counted 197 281 positions in 23 minutes at depth 4. Now it counted 197 702 positions in 129 seconds, giving $\approx$ 1532 nodes/s! But comparing this number to that of <a href = "https://en.wikipedia.org/wiki/Shannon_number"> Shannon's number</a>, we see an offset of 421. This is 0.002 of the counted positions. You'd think that this won't give a problem in the future, but that is a faulty thought! The begin positions doesn't contain that much complex moves, and thus even the smallest offset could cause big problems once going live. 
+After these modifications, the number of nodes/s achieved drastically increased. As stated in the begin, my program counted 197 281 positions in 23 minutes at depth 4. Now it counted 197 702 positions in 129 seconds, giving $\approx$ 1532 nodes/s! But comparing this number to that of <a href = "https://en.wikipedia.org/wiki/Shannon_number"> Shannon's number</a>, we see an offset of 421. This is 0.002 of the counted positions. You'd think that this won't give a problem in the future, but that is a faulty thought! The begin positions doesn't contain that much complex moves, and thus even the smallest offset could cause big problems once going live. But I had honestly a bit enough of debugging and wanted to work on the user-interface: making an interactive chess board instead of giving in cryptic chess notations in the console.
+
+## User-interface
+The UI is achieved by making use of pygame. By entering a menu, the person can choose which format he'd like to play:
+<ul>
+  <li>Multiplayer: playing on one screen against another person</li>
+</ul>
+ Against the engine:  
+  <ul>
+        <li>Person plays white</li>
+        <li>Person plays black</li>
+  </ul>
+
+<p>
+  Now it is time to introduce the algorithm to play against the human!
+</p>
+
+## Engine algorithms
+Originally when I started with this project, I had deep AI in mind. But for the time being, I avoided this and looked at other techniques to make an engine. For a two-player game the first choice falls for the minimax algorithm. Before diving into this, there is need to talk about the evaluation in chess games.
+
+### Evaluating a chess position
+<p>
+There are different way to analyze a chess position. To start evaluating, there is first need to give values to the pieces, for white this is:
+</p>
+<ul>
+  <li>Pawn: 1</li>
+  <li>Knight: 3</li>
+  <li>Bishop: 3</li>
+  <li>Rook: 5</li>
+  <li>Queen: 9</li>
+  <li>King: 100</li>
+  <li>For black it's the same value, only with a reversed sign</li>
+</ul>
+<p>
+With these points in mind, a naive approach is by adding all the pieces' points on the board and look if it is positive or negative to see which side is better and by how much. This is a good estimator when
+  you'd like to have a global assessment of the position. But this won't give any hint to the engine how to play the opening; the fundament of the game.
+</p>
+### Minimax without pruning
+<p>
+  Minimax works with the principle of a maximizing player, and the other minimizing player. The maximizing player wants to have a highest possible points; the white player 
+</p>
