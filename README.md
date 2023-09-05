@@ -165,7 +165,7 @@ Zobrist hashing is pretty straightforward. You generate a random number, for eno
   </ul>
 
 <p>
-  As an example you can look at <a href = "https://github.com/BurakKTopal/Chess/edit/main/Main.py#L555">[Link to Line 555 in Main.py]</a> and <a href =            "https://github.com/BurakKTopal/Chess/edit/main/Main.py#L680">[Link to Line 680 in Main.py]</a>. 
+  You can modify the difficulty and speed of the chess bot by changing <strong>both</strong> <a href = "https://github.com/BurakKTopal/Chess/edit/main/Main.py#L555">[Link to Line 555 in Main.py]</a> and <a href =            "https://github.com/BurakKTopal/Chess/edit/main/Main.py#L680">[Link to Line 680 in Main.py]</a> accordingly. 
 </p>
   
 <p>
