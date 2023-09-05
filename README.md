@@ -48,7 +48,7 @@ pip install pygame numpy chess-board display time random chessboard
 </p>
 
 
-## Choosing the difficulty and type of algorithm when playing
+### Choosing the difficulty and type of algorithm when playing
 <p>
   You can also choose the difficulty of the engine and on which algorithm it runs. You can choose out of the three algorithms:
 </p>
