@@ -9,6 +9,7 @@
   ```
   C:\Users\BurakKtopal\Python\Chess
   ```
+    
   Change the "C:" into "cd":
     
   ```
