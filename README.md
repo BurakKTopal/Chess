@@ -41,7 +41,7 @@ To run the program properly, you must have Python 3.7 > and the following packag
 In case of pip, type in your terminal of the IDE:
 
 ```
-pip install pygame time numpy random chess-board display
+pip install pygame numpy chess-board display
 ```
 
 ## The Begin of a challenge
