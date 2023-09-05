@@ -118,7 +118,7 @@ while not (mate):
 
                         # checking that the black king wouldn't be in check
                         chessboard.color = -1
-                        if not chessboard.schaak():
+                        if not chessboard.if_in_check():
                             # Writing en_passant_move in generic chess notation
                             chessboard.en_passant_move_black = str(
                                 chess_board_letters[(4, x_coordinate_white_piece - 1)][0]) + 'x' \
@@ -158,7 +158,7 @@ while not (mate):
 
                         # checking that the black king wouldn't be in check
                         chessboard.color = -1
-                        if not chessboard.schaak():
+                        if not chessboard.if_in_check():
                             # Forming generic chess notation
                             chessboard.en_passant_move_black = str(
                                 chess_board_letters[(4, x_coordinate_white_piece + 1)][0]) + 'x' \
@@ -364,7 +364,7 @@ while not (mate):
 
         # If black has no moves AND is in check, then the game ends, white wins, there can still be the case that
         # only an en passent could save the game
-        if chessboard.schaak():
+        if chessboard.if_in_check():
             if (chessboard.possible_moves()[1] == [] and not chessboard.en_passant_black):
                 move_white = input("The black king is checkmated!")
                 exit()
@@ -513,7 +513,7 @@ while not (mate):
                         # setting the color of the board back on white, as we are going to check whether the WHITE king
                         # is now in check
                         chessboard.color = 1
-                        if not chessboard.schaak():
+                        if not chessboard.if_in_check():
                             # Generating generic chess notation
                             chessboard.en_passant_move_white = str(
                                 chess_board_letters[(3, move_black_x_co - 1)][0]) + 'x' \
@@ -551,7 +551,7 @@ while not (mate):
                         # setting the color of the board back on white, as we are going to check whether the WHITE king
                         # is now in check
                         chessboard.color = 1
-                        if not chessboard.schaak():
+                        if not chessboard.if_in_check():
                             # Generating generic chess notation
                             chessboard.en_passant_move_white = str(
                                 chess_board_letters[(3, move_black_x_co + 1)][0]) + 'x' \
@@ -759,12 +759,12 @@ while not (mate):
         chessboard.color = 1
 
         # If after black's move, white doesn't have any moves anymore, than the game ends
-        if (chessboard.possible_moves()[0] == [] and chessboard.schaak()):
+        if (chessboard.possible_moves()[0] == [] and chessboard.if_in_check()):
             move_white = input("white king is checkmated")
             mate = True
 
         # If no possible move, but also not mate, then we have stalement
-        if (chessboard.possible_moves_white == [] and not chessboard.schaak()):
+        if (chessboard.possible_moves_white == [] and not chessboard.if_in_check()):
             move_white = input("Stalemate")
             mate = True
 
