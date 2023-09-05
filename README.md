@@ -178,5 +178,5 @@ Zobrist hashing is pretty straightforward. You generate a random number, for eno
 <footer>
   Hope you enjoy to play my game, and if you have any bugs, please let me know in the discussions!
   <br>
-  <strong>Burak Kucuktopal</strong>
+  Burak Kucuktopal
 </footer>
