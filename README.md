@@ -4,7 +4,7 @@
 ### Cloning the repository
 <ol>
   <li>Go to you command prompt</li>
-  <li>Enter "cd.." in your prompt until you have "C:\>" </li>
+  <li>Enter "cd .." in your prompt until you have "C:\>" </li>
   <li> Drag the folder to which you'd like to go to your folder and change the "C:" that will automatically appear at the front to "cd"</li>
   <li>Clone the repository. This means copying and pasting following line in your command prompt: </li>
   
