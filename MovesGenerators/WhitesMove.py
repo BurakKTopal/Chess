@@ -84,7 +84,7 @@ def white_turn(move_white, chessboard):
 
                         # checking that the black king wouldn't be in check
                         chessboard.color = -1
-                        if not chessboard.schaak():
+                        if not chessboard.if_in_check():
                             # Writing en_passant_move in generic chess notation
                             chessboard.en_passant_move_black.append(str(
                                 chess_board_letters[(4, x_coordinate_white_piece - 1)][0]) + 'x' \
@@ -120,7 +120,7 @@ def white_turn(move_white, chessboard):
 
                         # checking that the black king wouldn't be in check
                         chessboard.color = -1
-                        if not chessboard.schaak():
+                        if not chessboard.if_in_check():
                             # Forming generic chess notation
                             chessboard.en_passant_move_black.append(str(
                                 chess_board_letters[(4, x_coordinate_white_piece + 1)][0]) + 'x' \
@@ -340,7 +340,7 @@ def white_turn(move_white, chessboard):
         # If black has no moves AND is in check, then the game ends, white wins, there can still be the case that
         # only an en passant could save the game
         if (chessboard.possible_moves_black == []):
-            if chessboard.schaak():
+            if chessboard.if_in_check():
                 chessboard.mate = True
             else:
                 chessboard.stalemate = True
