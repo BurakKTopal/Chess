@@ -143,3 +143,23 @@ Zobrist hashing is pretty straightforward. You generate a random number, for eno
 <p>
   Note that the generation of the random numbers is a one time action and can then be used as seed for further Zobrist Key generation.
 </p>
+
+## Choosing the difficulty and type of algorithm when playing
+<p>
+  You can also choose the difficulty of the engine and on which algorithm it runs. You can choose out of the three algorithms:
+  <ul>
+              <li>minimax_with_zobrist_hashing_no_pruning(chessboard, depth, maximizingPlayer): this is minimax, with NO
+                    PRUNING, but WITH zobrist hashing</li>
+    
+              <li> minimax_with_pruning(chessboard, depth, -float('inf'), float('inf'), maximizingPlayer):
+                    This is the famous alpha-beta-pruning, but WITHOUT the zobrist hashing </li>
+                    
+              <li> minimax_with_zobrist_hashing_and_pruning(chessboard, depth, -float('inf'), float('inf'), maximizingPlayer):
+                    this is minimax, PRUNED and WITH the zobrist hashing</li>
+  </ul>
+</p>
+
+
+
+
+
