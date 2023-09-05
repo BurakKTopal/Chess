@@ -1,4 +1,4 @@
-# Chess in Python 3.1 by Burak Kucuktopal
+# Chess in Python 3.10 by Burak Kucuktopal
 
 ## Setup
 ### Cloning the repository
