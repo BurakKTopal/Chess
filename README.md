@@ -47,6 +47,26 @@ pip install pygame numpy chess-board display time random chessboard
   If this doesn't work, try to install them one by one.
 </p>
 
+
+## Choosing the difficulty and type of algorithm when playing
+<p>
+  You can also choose the difficulty of the engine and on which algorithm it runs. You can choose out of the three algorithms:
+</p>
+  <ul>
+    <li> minimax_with_zobrist_hashing_no_pruning(chessboard, depth, maximizingPlayer) </li>
+    <li> minimax_with_pruning(chessboard, depth, -float('inf'), float('inf'), maximizingPlayer) </li>
+    <li> minimax_with_zobrist_hashing_and_pruning(chessboard, depth, -float('inf'), float('inf'), maximizingPlayer) </li>
+  </ul>
+
+<p>
+  You can modify the difficulty and speed of the chess bot by changing <strong>both</strong> <a href = "https://github.com/BurakKTopal/Chess/edit/main/Main.py#L555">[Link to Line 555 in Main.py]</a> and <a href =            "https://github.com/BurakKTopal/Chess/edit/main/Main.py#L680">[Link to Line 680 in Main.py]</a> accordingly. 
+</p>
+  
+<p>
+    Please only change the 'depth' value. For the minimax with pruning and zobrist hashing, calculating at a depth 4, the engine takes somewhere up to 40-60 seconds. At depth 3, the time to generate a move is around the 3-10 seconds
+</p>
+
+
 ## The Begin of a challenge
 <p>
 I got interested in playing chess at my 13th and really started playing when I was 14 years old. At the age of 16 I became regional champion of my age category, and on my 17th of all age categories. But my eager to play chess has declined since then. To revive this and improve my Python class comprehension, I started making a chess program in March 2023. Two hard weeks resulted in a program in which a move be played by given in the console the move, conform to the general chess notation. There was not yet a engine, and it was certainly not optimized, nor user friendly; not everyone knows proper chess notation. I knew I had some clean up to do, as it was a complex cluster of if and for loops and not even commented. At the time though, it worked, so I was happy. I knew one day I'd need to clean it up etc. to present it properly...
@@ -155,24 +175,6 @@ Zobrist hashing is pretty straightforward. You generate a random number, for eno
 </p>
 <p>
   Note that the generation of the random numbers is a one time action and can then be used as seed for further Zobrist Key generation.
-</p>
-
-## Choosing the difficulty and type of algorithm when playing
-<p>
-  You can also choose the difficulty of the engine and on which algorithm it runs. You can choose out of the three algorithms:
-</p>
-  <ul>
-    <li> minimax_with_zobrist_hashing_no_pruning(chessboard, depth, maximizingPlayer) </li>
-    <li> minimax_with_pruning(chessboard, depth, -float('inf'), float('inf'), maximizingPlayer) </li>
-    <li> minimax_with_zobrist_hashing_and_pruning(chessboard, depth, -float('inf'), float('inf'), maximizingPlayer) </li>
-  </ul>
-
-<p>
-  You can modify the difficulty and speed of the chess bot by changing <strong>both</strong> <a href = "https://github.com/BurakKTopal/Chess/edit/main/Main.py#L555">[Link to Line 555 in Main.py]</a> and <a href =            "https://github.com/BurakKTopal/Chess/edit/main/Main.py#L680">[Link to Line 680 in Main.py]</a> accordingly. 
-</p>
-  
-<p>
-    Please only change the 'depth' value. For the minimax with pruning and zobrist hashing, calculating at a depth 4, the engine takes somewhere up to 40-60 seconds. At depth 3, the time to generate a move is around the 3-10 seconds
 </p>
 
 <footer>
