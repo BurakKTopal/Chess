@@ -40,23 +40,33 @@ I got interested in playing chess at my 13th and really started playing when I w
 </p>
 
 <p>
-August 15, I started looking back into my program. At first sight it was really a big chaos; it costed me, the maker of the program, 2 days(!) to go through it and clean it up. I wrote a program to count the number of positions available for a certain depth. At depth 4 from the begin position, it took 23 minutes to count the 197 281 positions! The number seems impressive, but the time it takes to achieve this is gigantically poor; it would mean $\approx$ 194 nodes/s. Compare this miserable number to that of the super-engine <a href = https://chessify.me/blog/nps-what-are-the-nodes-per-second-in-chess-engine-analysis>Stockfish</a>: $5 \cdot 10^{6} - 2 \cdot 10^{7}$ nodes/s. As from here, the optimization journey begins!
+August 15, I started looking back into my program. At first sight it was really a big chaos; it costed me, the maker of the program, 2 days(!) to go through it and clean it up. I wrote a program to count the number of positions available for a certain depth. At depth 4 from the begin position, it took 23 minutes to count the 197 281 positions! The number seems impressive, but the time it takes to achieve this is gigantically poor; it would mean $\approx$ 194 nodes/s. Compare this miserable number to that of the super-engine <a href = "https://chessify.me/blog/nps-what-are-the-nodes-per-second-in-chess-engine-analysis">Stockfish</a>: $5 \cdot 10^{6} - 2 \cdot 10^{7}$ nodes/s. As from here, the optimization journey begins!
 </p>
 
 ## Optimization
 
 ### Proper Python class use
+<p>
 When I started looking back at the code in August, the first thing I notices was the very improper use of Python classes. Each time I needed a function that was created in the board class, I'd would make a new instance of the class and call the function. This is equal to creating mutliple boards instead of working with one! 
+</p>
 
 ### Saving king positions
+<p>
 Once I understood that I can give characteristics to the board, I started saving the positions of the king. This comes handy when you consider looking for checks: instead of each time searching through all 64 squares for the king of the corresponding color, I can just fetch it from the board-object.
+</p>
 
 ### Breaking loop if condition already satisfied
+<p>
 One of the ways to look if a move by a piece is legal, is to check if there are any pieces between the begin and endpoint. If there is, then the move could not be played; as pieces, excluding the knight, cannot jump over other pieces. I previously continued the loop, even if a piece was already found on the path, but I finally realized that it could be stopped if at least one was found.
+</p>
 
 ### Saving the non-empty cells
-Inspired by the <a href =https://www.youtube.com/watch?v=U4ogK0MIzqk >video</a> of <a href = https://github.com/SebLague/Chess-Coding-Adventure> Sebastian League</a>, I started saving the non-empty cells on the board. This strongly improves the time to generate the possible moves, since there will be at least 32 squares not checked.
+<p>
+Inspired by the <a href ="https://www.youtube.com/watch?v=U4ogK0MIzqk"> video </a> of <a href = "https://github.com/SebLague/Chess-Coding-Adventure"> Sebastian League</a>, I started saving the non-empty cells on the board. This strongly improves the time to generate the possible moves, since there will be at least 32 squares not checked anymore.
+</p>
 
+### Line of sight
+To come up with this one, it took me quite some time. The function 'if_in_check()' looks if the king is in check and 'looking_if_check()' plays a move and looks if it results in seting his own king in check, if so, then the move is not legal. 'looking_if_check()' was first called every time a move is validated, but this is only needed for the pieces which are in the line of sight of the king! This means that a friendly piece that is NOT diagonally, horizontally or vertically connected to the king, cannot put his own king in check. This reduced the number of calls to the 'if_in_checkt()' function, and thus reduced the time.
 
-
+###
 
