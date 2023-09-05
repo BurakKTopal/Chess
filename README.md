@@ -121,13 +121,25 @@ With these points in mind, a naive approach is by adding all the pieces' points 
   I have made use of minimax and some modifications on it.
 </p>
 
-
-
 #### Minimax without pruning
+<p>
 Minimax relies on the principle of a maximizing(white) and minimizing(black) the evaluation of the position. This algorithm goes through all possible positions for a given depth and determines, based on the given evaluation function, which positions is the most favourable for the engine.
+</p>
 
 ####  Minimax with pruning
+<p>
 In a game of chess, going through all different positions is very time-expensive when we're going to higher depths. To counter this, we can 'prune' the game tree. A game tree represents per level the possible chess positions that can be achieved. The pruning happens by working with additional $\alpha$ and $\beta$ parameters. With these parameters we could stop searching further into a branch of the tree if we're pretty sure that it won't give any better move. We thus 'prune' the branch. Sebastian League again made a fantastic <a href="https://www.youtube.com/watch?v=l-hh51ncgDI&t">video</a> about this topic. 
+</p>
 
 #### Minimax with pruning and Zobrist Hashing
+<p>
 With the pruning, we can already achieve a decent chess engine, but I wanted to do something extra to make it a notch faster. This can be achieved by the concept of 'Hashing'. Hashing in this case means that you map a chess position to a unique number and save this as a key in a dictionary with its value information about the position; $\alpha$, $\beta$, best move and evaluation. This comes very handy in chess because of the phenomena called 'transpositions'. For example for a depth of 4: we can have the game 1.e4 2.e5 3.Nc3 and 1.Nc3 2.e5 3.e4 If you'd play this out, you'll see that we have the exact same position. In this case, by rememebering that the engine already encountered this position in previous calculations, it can gather the information of the position out of the dictionary.
+</p>
+
+##### Zobrist Hashing
+<p>
+Zobrist hashing is pretty straightforward. You generate a random number, for enough arbitrariness I've chosen integers between 0 and 10E10, for each piece on each square of the chess board. Thus you have a list containing 64 dictionaries and each dictionary having 12 keys. Besides, you also generate 8 random numbers for each column for en passant as you can have visually the same chess position, but differing because in one you can play en passant, and the other not. Finally you generate 4 random numbers for the castling(long and short for white, and long and short for black). Once you've generated the 'Zobrist Keys', you can apply this on a given chess position. By going through all the <strong>non-empty squares</strong>, you look which piece is on it, take the random number corresponding to that piece on that square and then you XOR all the number with eachother. At the end, you'll get a number, which is the Zobrist Key of that position.
+</p>
+<p>
+  Note that the generation of the random numbers is a one time action and can then be used as seed for further Zobrist Key generation.
+</p>
