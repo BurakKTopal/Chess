@@ -104,7 +104,15 @@ There are different way to analyze a chess position. To start evaluating, there 
 </ul>
 <p>
 With these points in mind, a naive approach is by adding all the pieces' points on the board and look if it is positive or negative to see which side is better and by how much. This is a good estimator when
-  you'd like to have a <a href = "https://chessify.me/blog/chess-engine-evaluation">global assessment</a> of the position by looking at this number. But this won't give any hint to the engine how to play the opening; the fundament of the game. To account for this, I've made use of square-piece tables. I first started using these tables for the whole game, but I quickly understood that the engine couldn't play the endgame properly. To account for this, I've made use of the <a href="https://www.chessprogramming.org/PeSTO%27s_Evaluation_Function" target = _blank> PeSTO's evaluation tables</a> for the endgame and used the tables I'd already had as a guide for the engine during the middlegame.
+  you'd like to have a <a href = "https://chessify.me/blog/chess-engine-evaluation">global assessment</a> of the position by looking at this number. But this won't give any hint to the engine how to play the opening; the fundament of the game. To account for this, I've made use of square-piece tables. I first started using these tables for the whole game, but I quickly understood that the engine couldn't play the endgame properly. To account for this, I've made use of the <a href="https://www.chessprogramming.org/PeSTO%27s_Evaluation_Function"> PeSTO's evaluation tables</a>, modified it a bit, for the endgame and used the tables I'd already had as a guide for the engine during the middlegame.
+</p>
+<p>
+  Further improvements regarding the evaluation could be:
+  <ul>
+    <li>Adding 'activity function' that serves as to give more points to pieces that are more active; meaning there have control over more square.</li>
+    <li>Adding an opening book to ensure the opening goes as smooth as possible</li>
+    <li>Adding AI functionality which adds/decreases notches of pionts based on earlier seen positions.</li>
+  </ul>
 </p>
 
 ### Minimax without pruning
