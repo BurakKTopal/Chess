@@ -70,7 +70,7 @@ def black_move_player(initial_move, new_move, chessboard, piece_to_promote = Fal
                         # setting the color of the board back on white, as we are going to check whether the WHITE king
                         # is now in check
                         chessboard.color = 1
-                        if not chessboard.schaak():
+                        if not chessboard.if_in_check():
                             # Generating generic chess notation
                             chessboard.en_passant_move_white.append(str(
                                 chess_board_letters[(3, move_black_x_co - 1)][0]) + 'x' \
@@ -108,7 +108,7 @@ def black_move_player(initial_move, new_move, chessboard, piece_to_promote = Fal
                         # setting the color of the board back on white, as we are going to check whether the WHITE king
                         # is now in check
                         chessboard.color = 1
-                        if not chessboard.schaak():
+                        if not chessboard.if_in_check():
                             # Generating generic chess notation
                             chessboard.en_passant_move_white.append(str(
                                 chess_board_letters[(3, move_black_x_co + 1)][0]) + 'x' \
@@ -327,8 +327,8 @@ def black_move_player(initial_move, new_move, chessboard, piece_to_promote = Fal
     chessboard.color = 1
     chessboard.possible_moves()
     # If after black's move, white doesn't have any moves anymore, than the game ends
-    if (chessboard.possible_moves_white == [] and chessboard.schaak()):
-        if chessboard.schaak():
+    if (chessboard.possible_moves_white == [] and chessboard.if_in_check()):
+        if chessboard.if_in_check():
             chessboard.mate = True
             return False
         else:
