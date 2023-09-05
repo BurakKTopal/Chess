@@ -360,7 +360,7 @@ class board:
         self.current_chess_board[new_y][new_x] = (played_piece, played_piece_points)
         self.current_chess_board[initial_y][initial_x] = ("B", 0)
 
-        is_in_check = self.schaak()
+        is_in_check = self.if_in_check()
 
         self.current_chess_board[new_y][new_x] = (taken_piece, taken_piece_points)
         self.current_chess_board[initial_y][initial_x] = (played_piece, played_piece_points)
@@ -400,7 +400,7 @@ class board:
         non_empty_cells = self.cells_having_pieces_white if self.color == 1 else self.cells_having_pieces_black
         non_empty_cells_enemy = self.cells_having_pieces_black if self.color == 1 else self.cells_having_pieces_white
 
-        self.is_in_check = self.schaak()
+        self.is_in_check = self.if_in_check()
         for tuple in non_empty_cells:
             y_pos_piece, x_pos_piece = tuple
             # Getting the piece and its color of the current cell on which the for-loop is.
@@ -451,7 +451,7 @@ class board:
 
                             # Checking if king is in check in new position or that the two kings are in each others illegal
                             # proximimty
-                            if self.schaak() or (abs(king_x - enemy_king_x) <= 1 and abs(king_y - enemy_king_y) <= 1):
+                            if self.if_in_check() or (abs(king_x - enemy_king_x) <= 1 and abs(king_y - enemy_king_y) <= 1):
                                 # If true, than the position should be reset to the initial board before the king move
                                 self.current_chess_board[initial_y_co][initial_x_co] = ("K", 100 * self.color)
                                 self.current_chess_board[y_pos_piece + a][x_pos_piece + b] = (
@@ -771,7 +771,7 @@ class board:
 
         return total_moves
 
-    def schaak(self):
+    def if_in_check(self):
         """
         Function to check whether some king is in check
         :return: True if king in question is in check, False if not.
