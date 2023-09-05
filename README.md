@@ -86,7 +86,7 @@ The UI is achieved by making use of pygame. By entering a menu, the person can c
   Now it is time to introduce the algorithm to play against the human!
 </p>
 
-## Engine algorithms
+## Engine incorporation
 Originally when I started with this project, I had deep AI in mind. But for the time being, I avoided this and looked at other techniques to make an engine. For a two-player game the first choice falls for the minimax algorithm. Before diving into this, there is need to talk about the evaluation in chess games.
 
 ### Evaluating a chess position
@@ -115,7 +115,21 @@ With these points in mind, a naive approach is by adding all the pieces' points 
   </ul>
 </p>
 
-### Minimax without pruning
+### Algoritmhs
 <p>
-  Minimax works with the principle of a maximizing player, and the other minimizing player. The maximizing player wants to have a highest possible points; the white player 
+  There has to be a plan that the engine needs to follow to determine the best move. This can be done by several ways(AI, minimax, negamax, ...). In my program
+  I have made use of minimax and some modifications on it.
 </p>
+
+
+
+#### Minimax without pruning
+Minimax relies on the principle of a maximizing(white) and minimizing(black) the evaluation of the position. This algorithm goes through all possible positions for a given depth and determines, based on the given evaluation function, which positions is the most favourable for the engine.
+
+####  Minimax with pruning
+In a game of chess, going through all different positions is very time-expensive when we're going to higher depths. To counter this, we can 'prune' the game tree. A game tree represents per level the possible chess positions that can be achieved. The pruning happens by working with additional $\alpha$ and $\beta$ parameters. With these parameters we could stop searching further into a branch of the tree if we're pretty sure that it won't give any better move. We thus 'prune' the branch. Sebastian League again made a fantastic <a href="https://www.youtube.com/watch?v=l-hh51ncgDI&t">video</a> about this topic. 
+
+
+
+#### Minimax with pruning and Zobrist Hashing
+
