@@ -81,7 +81,7 @@ def white_move_player(initial_move, new_move, chessboard, piece_to_promote = Fal
 
                         # checking that the black king wouldn't be in check
                         chessboard.color = -1
-                        if not chessboard.schaak():
+                        if not chessboard.if_in_check():
                             # Writing en_passant_move in generic chess notation
                             chessboard.en_passant_move_black.append(str(
                                 chess_board_letters[(4, x_coordinate_white_piece - 1)][0]) + 'x' \
@@ -117,7 +117,7 @@ def white_move_player(initial_move, new_move, chessboard, piece_to_promote = Fal
 
                         # checking that the black king wouldn't be in check
                         chessboard.color = -1
-                        if not chessboard.schaak():
+                        if not chessboard.if_in_check():
                             # Forming generic chess notation
                             chessboard.en_passant_move_black.append(str(
                                 chess_board_letters[(4, x_coordinate_white_piece + 1)][0]) + 'x' \
@@ -332,13 +332,13 @@ def white_move_player(initial_move, new_move, chessboard, piece_to_promote = Fal
     chessboard.possible_moves()
     # If black has no moves AND is in check, then the game ends, white wins, there can still be the case that
     # only an en passant could save the game
-    if (chessboard.possible_moves()[1] == [] and chessboard.schaak() and not chessboard.en_passant_black):
+    if (chessboard.possible_moves()[1] == [] and chessboard.if_in_check() and not chessboard.en_passant_black):
         #move_white = input("The black king is checkmated!")
         chessboard.mate = True
         return False
 
     # If no possible move, but also not mate, then we have stalemate; thus a draw.
-    elif (chessboard.possible_moves_black == [] and not chessboard.schaak() and not chessboard.en_passant_black):
+    elif (chessboard.possible_moves_black == [] and not chessboard.if_in_check() and not chessboard.en_passant_black):
         #move_white = input("Stalemate")
         chessboard.stalemate = True
         return False
