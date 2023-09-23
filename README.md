@@ -67,6 +67,12 @@ pip install pygame numpy chess-board display time random chessboard
 </p>
 
 
+## Linux installation
+```sh
+$ git clone https://github.com/svKyan/PyChess
+$ ./install-linux
+```
+
 ## The Begin of a challenge
 <p>
 I got interested in playing chess at my 13th and really started playing when I was 14 years old. At the age of 16 I became regional champion of my age category, and on my 17th of all age categories. But my eager to play chess has declined since then. To revive this and improve my Python class comprehension, I started making a chess program in March 2023. Two hard weeks resulted in a program in which a move be played by given in the console the move, conform to the general chess notation. There was not yet a engine, and it was certainly not optimized, nor user friendly; not everyone knows proper chess notation. I knew I had some clean up to do, as it was a complex cluster of if and for loops and not even commented. At the time though, it worked, so I was happy. I knew one day I'd need to clean it up etc. to present it properly...
