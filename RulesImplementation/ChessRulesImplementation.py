@@ -1,5 +1,4 @@
 import numpy as np
-from chessboard import display
 
 """
                                         CHESS made by Burak Kucuktopal

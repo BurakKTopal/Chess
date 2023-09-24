@@ -4,7 +4,7 @@
 ### Cloning the repository
 <ol>
   <li>Go to you command prompt</li>
-  <li>Enter "cd.." in your prompt until you have "C:\>" </li>
+  <li>Enter "cd .." in your prompt until you have "C:\>" </li>
   <li>Drag the folder to which you'd like to clone the repository. There will appear something like:
     
   ```
@@ -13,7 +13,7 @@
   Change the "C:" into "cd":
     
   ```
-  cd\Users\BurakKtopal\Python\Chess
+  cd \Users\BurakKtopal\Python\Chess
   ```
   </li>
   <li>Clone the repository. This means copying and pasting following line in your command prompt: </li>
@@ -66,6 +66,23 @@ pip install pygame numpy chess-board display time random chessboard
     Please only change the 'depth' value. For the minimax with pruning and zobrist hashing, calculating at a depth 4, the engine takes somewhere up to 40-60 seconds. At depth 3, the time to generate a move is around the 3-10 seconds
 </p>
 
+
+## Linux installation
+<p>
+Because certain package managers, like apt and pacman, package python packages themselves, I advice using a local python venv.
+If you don't want this, look into getting these dependencies yourselves for your specific distro and don't run the "install-linux.sh" script.
+</p>
+
+```sh
+git clone https://github.com/BurakKTopal/Chess
+cd Chess
+./install-linux.sh
+```
+
+Then run it using
+```sh
+python3 Main.py
+```
 
 ## The Begin of a challenge
 <p>
